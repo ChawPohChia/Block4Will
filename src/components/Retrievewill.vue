@@ -6,6 +6,6 @@
 
 <script>
   export default {
-
-  }
+  name: 'Retrievewill'
+}
 </script>
