@@ -33,3 +33,9 @@ References:
     - https://www.codingame.com/playgrounds/3808/how-to-use-vue-router
     - The above not successful ,use "vue add router instead"
        https://router.vuejs.org/installation.html#npm 
+
+4) Refers to  https://willcraftnow.com/en/online_wills for Will format
+
+5) Bootstrap Form creation references: https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp
+
+6) Upload images references: https://bootsnipp.com/snippets/eNbOa 
