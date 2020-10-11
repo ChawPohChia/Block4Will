@@ -1,8 +1,8 @@
 <template>
   <div id="nav">
-    <router-link to="/">Mainpage</router-link> |
-    <router-link to="/Createwill">Createwill</router-link> |
-    <router-link to="/Retrievewill">Retrievewill</router-link>
+    <router-link to="/">Main page</router-link> |
+    <router-link to="/Createwill">Create will</router-link> |
+    <router-link to="/Retrievewill">Retrieve will</router-link>
   </div>
   <router-view/>
 </template>
