@@ -31,7 +31,12 @@
         ></textarea>
       </div>
 
-    
+      <div class="form-group">
+        <label>Please upload an image of your executor:</label>  
+        <div id="preview">
+          <img v-if="url" :src="url"/>
+        </div><input type="file" @change="onFileChange" />
+      </div>
 
       <button type="submit" class="btn btn-primary">Submit Your Will</button>
     </form>
@@ -52,6 +57,7 @@ export default {
       errorMessage: null,
       successMessage: null,
       loading: false,
+      url: null,
       form: {
         personaldetails: {
           details: null
@@ -74,9 +80,11 @@ export default {
           " " +
           this.form.personaldetails.details
       );
+    },
+     onFileChange(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
     }
-    
-	
   }
 };
 </script>

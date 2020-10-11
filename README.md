@@ -38,4 +38,5 @@ References:
 
 5) Bootstrap Form creation references: https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp
 
-6) Upload images references: https://bootsnipp.com/snippets/eNbOa 
+6) Upload images references:    
+   https://stackoverflow.com/questions/49106045/preview-an-image-before-it-is-uploaded-vuejs
