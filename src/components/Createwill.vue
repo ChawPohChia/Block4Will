@@ -32,10 +32,11 @@
       </div>
 
       <div class="form-group">
-        <label>Please upload an image of your executor:</label>  
+        <label>Please upload an image of your executor:</label>
         <div id="preview">
-          <img v-if="url" :src="url"/>
-        </div><input type="file" @change="onFileChange" />
+          <img v-if="url" :src="url" />
+        </div>
+        <input type="file" @change="onFileChange" />
       </div>
 
       <button type="submit" class="btn btn-primary">Submit Your Will</button>
@@ -54,10 +55,8 @@ export default {
 
   data() {
     return {
-      errorMessage: null,
-      successMessage: null,
-      loading: false,
       url: null,
+      executorImage: null,
       form: {
         personaldetails: {
           details: null
@@ -71,19 +70,17 @@ export default {
 
   methods: {
     SubmitWill() {
-      this.loading = true;
-      this.errorMessage = null;
-      this.successMessage = null;
-      console.log(
-        "submiting press " +
-          this.form.assetallocations.allocations +
-          " " +
-          this.form.personaldetails.details
-      );
+      console.log("submiting press, image binary: " + this.executorImage);
     },
-     onFileChange(e) {
+    readImage(imagefile) {
+      var fr = new FileReader();
+      fr.onload = e => (this.executorImage = e.target.result);
+      fr.readAsDataURL(imagefile);    
+    },
+    onFileChange(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
+      this.readImage(file);     
     }
   }
 };
