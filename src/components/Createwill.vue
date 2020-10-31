@@ -78,8 +78,12 @@ export default {
       ipfs.add(Buffer.from(this.executorImage),(err,fileInfo)=>{
           if (err) console.log(err);          
           this.executorImageIpfsHash=fileInfo[0].hash;
-          console.log('Hash: ',this.executorImageIpfsHash);
+          //console.log('Hash: ',this.executorImageIpfsHash);
       }) 
+
+      console.log("Personal Details: "+this.form.personaldetails.details);
+      console.log("Asset Allocations: "+this.form.assetallocations.allocations);
+      console.log("Executor Hash: "+this.executorImageIpfsHash);
     },
   
     readImage(imagefile) {
