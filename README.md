@@ -33,3 +33,22 @@ References:
     - https://www.codingame.com/playgrounds/3808/how-to-use-vue-router
     - The above not successful ,use "vue add router instead"
        https://router.vuejs.org/installation.html#npm 
+
+4) Refers to  https://willcraftnow.com/en/online_wills for Will format
+
+5) Bootstrap Form creation references: https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp
+
+6) Upload images references:    
+   https://stackoverflow.com/questions/49106045/preview-an-image-before-it-is-uploaded-vuejs
+
+
+
+
+
+IPFS
+----
+1) Webpage seve from port 8080, so have to configure ipfs server from 8090
+   https://discuss.ipfs.io/t/can-i-change-the-port-ipfs-works-on/5565 
+   Change it from: ~/.ipfs/config
+   * To run IPFS: > ipfs daemon
+
