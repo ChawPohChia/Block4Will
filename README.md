@@ -40,3 +40,15 @@ References:
 
 6) Upload images references:    
    https://stackoverflow.com/questions/49106045/preview-an-image-before-it-is-uploaded-vuejs
+
+
+
+
+
+IPFS
+----
+1) Webpage seve from port 8080, so have to configure ipfs server from 8090
+   https://discuss.ipfs.io/t/can-i-change-the-port-ipfs-works-on/5565 
+   Change it from: ~/.ipfs/config
+   * To run IPFS: > ipfs daemon
+

@@ -57,6 +57,7 @@ export default {
     return {
       url: null,
       executorImage: null,
+      executorImageIpfsHash: null,
       form: {
         personaldetails: {
           details: null
@@ -69,14 +70,24 @@ export default {
   },
 
   methods: {
-    SubmitWill() {
-      console.log("submiting press, image binary: " + this.executorImage);
+
+    SubmitWill() {      
+      console.log("submiting will ...");   
+      let ipfsAPI= require('ipfs-http-client');
+      let ipfs = ipfsAPI('localhost','5001',{protocol: 'http'}); 
+      ipfs.add(Buffer.from(this.executorImage),(err,fileInfo)=>{
+          if (err) console.log(err);          
+          this.executorImageIpfsHash=fileInfo[0].hash;
+          console.log('Hash: ',this.executorImageIpfsHash);
+      }) 
     },
+  
     readImage(imagefile) {
       var fr = new FileReader();
       fr.onload = e => (this.executorImage = e.target.result);
       fr.readAsDataURL(imagefile);    
     },
+
     onFileChange(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
