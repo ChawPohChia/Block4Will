@@ -58,8 +58,8 @@
    data() {
     return {
       url: null,
-      willHash: "QmQA6uANxuCAAjQ1wKzB5WAcXqozpYnPPD7XSTTANUyPW8",
-      executorImageHash:"QmQA6uANxuCAAjQ1wKzB5WAcXqozpYnPPD7XSTTANUyPW8",
+      willHash: "efa3d898d0c97c329393fbddf8f46aeca721039d90cae19f370d40a37aebc552",
+      //executorImageHash:"QmQA6uANxuCAAjQ1wKzB5WAcXqozpYnPPD7XSTTANUyPW8",
       totalWillsCount:null,
       form: {
         personaldetails: {
@@ -69,24 +69,26 @@
           allocations: null
         },
         retrieveWillHash:null,
+        executorImageHash:null,
       }
     }
    },
    
    methods: {
      //sample will hash: "efa3d898d0c97c329393fbddf8f46aeca721039d90cae19f370d40a37aebc552"
-     
-     
-    RetrieveWill() {
-      console.log("Retrieving will hash:" +this.form.retrieveWillHash);
-      console.log("Retrieving executor image... ");
-      let ipfsAPI= require('ipfs-http-client');
-      let ipfs = ipfsAPI('localhost','5001',{protocol: 'http'}); 
-      ipfs.cat(this.executorImageHash, (err, data) =>{
+     RetrieveExecutorImage(ipfsImageHash){
+       console.log("Retrieving executor image... ");
+       let ipfsAPI= require('ipfs-http-client');
+       let ipfs = ipfsAPI('localhost','5001',{protocol: 'http'}); 
+       ipfs.cat(ipfsImageHash, (err, data) =>{
           if (err) console.log(err);       
           document.getElementById("executorPhoto").src = data.toString();
-      });      
-        
+      });   
+
+     },
+     
+    RetrieveWill() {
+      console.log("Retrieving will hash:" +this.form.retrieveWillHash);  
       const contractAddress = "0x473a514f40FD105D980Cbca33A7Ca3fb28992F75";
       const contractABI = [
         {
@@ -181,10 +183,12 @@
       contract.methods.getWill(this.form.retrieveWillHash).call({
             from: window.web3.eth.defaultAccount,
           }).then(async (res) => {
-          
+               //Return formar: Wills[i].personalDetail, Wills[i].assetAllocation, Wills[i].executorImageIpfsHash, Wills[i].dateAddedIntoSmartContrac
                console.log("Retriving Will with ID "+this.willHash+" :"+res[0]+res[1]+res[2]+res[3]);
                this.form.personaldetails.details=res[0];  
                this.form.assetallocations.allocations=res[1]; 
+               this.form.executorImageHash=res[2];
+               this.RetrieveExecutorImage(this.form.executorImageHash);
         });
       }
    }
