@@ -39,7 +39,8 @@
         <input type="file" @change="onFileChange"/><br><br><br>
         <button type="button" @click="UploadToIPFS">Upload Executor Image to IPFS</button> <br>
        </div>
-      <button type="submit" class="btn btn-primary">Submit Your Will</button>
+      <button type="submit" class="btn btn-primary">Submit Your Will</button><br><br>
+      <label id="message">After submit, please wait until your will hash appear...</label>
     </form>
   </section>
 </template>
@@ -199,11 +200,13 @@ export default {
           .on('confirmation', (confirmNumber) => {
             // Wait for 2 ticks so that the results gets reflected in the blockchain first.
             if (confirmNumber === 2) {
-              console.log("Confirmed execution of upload! Your willHash is "+willHash);
+              console.log("Congratulation, your will has been persisted to Block! Your will hash is "+willHash);
+              document.getElementById("message").innerHTML  = "Congratulation! Your will has been persisted to blockchain! To retrieve your will, using this hash: "+willHash;
             }
           })
           .on('error', (err) => {
             console.log("Error happens during upload of will. Err: "+err);
+            document.getElementById("message").innerHTML  = "Error happens during upload of will. Err: "+err;
           });
     },
 
