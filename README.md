@@ -94,5 +94,14 @@ Others:
 2) How to Connect Web3.js to MetaMask in 2020: https://medium.com/@awantoch/how-to-connect-web3-js-to-metamask-in-2020-fee2b2edf58a
 
 
+smart Contract Testing 
+----------------------
+1) Using Solidity Unit Testing.refer to here:
+https://medium.com/remix-ide/solidity-unit-testing-using-remix-tests-part-2-50a9f486ab5d 
+
+2) Sample testing examples:
+https://remix-ide.readthedocs.io/en/latest/unittesting_examples.html#simple-example
+
+
 
 
