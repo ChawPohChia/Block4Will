@@ -27,5 +27,9 @@ contract WillRegistry_UnitTests{
          Assert.equal(keccak256(abi.encodePacked(assetAllocation)),keccak256(abi.encodePacked("assetAllocation")), "Asset Allocations not match to the retrieved will");
          Assert.equal(keccak256(abi.encodePacked(executorImageIpfsHash)),keccak256(abi.encodePacked("executorImageIpfsHash")), "Executor Image Ipfs Hash not match to the retrieved will");
     }
+    
+     function checkUploadReturnHash() public {
+        string memory myReturnedHash=artifact.upload("myTestHash", "personalDetail", "assetAllocation", "executorImageIpfsHash");
+        Assert.equal(keccak256(abi.encodePacked(myReturnedHash)),keccak256(abi.encodePacked("myTestHash")), "Return hash from willregistry.upload() is not correct!");
+    }
 }
-
