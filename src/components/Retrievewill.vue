@@ -58,8 +58,6 @@
    data() {
     return {
       url: null,
-      willHash: "efa3d898d0c97c329393fbddf8f46aeca721039d90cae19f370d40a37aebc552",
-      //executorImageHash:"QmQA6uANxuCAAjQ1wKzB5WAcXqozpYnPPD7XSTTANUyPW8",
       totalWillsCount:null,
       form: {
         personaldetails: {
@@ -75,7 +73,6 @@
    },
    
    methods: {
-     //sample will hash: "efa3d898d0c97c329393fbddf8f46aeca721039d90cae19f370d40a37aebc552"
      RetrieveExecutorImage(ipfsImageHash){
        console.log("Retrieving executor image... ");
        let ipfsAPI= require('ipfs-http-client');
