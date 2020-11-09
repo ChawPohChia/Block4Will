@@ -64,7 +64,15 @@ Sample Will:
 Lee Kwan Yew (IC:  S0000003E)
 
 1) 38 Oxley Road: Let the daughter (Lee Wei Ling, IC: SxxxxxxxG) has privilege to live in it without rental. Upon selling, sellng profit to be Equally Distributed betweem three kids (Lee Hsien Loong, Lee Hsien Yang, Lee Wei Ling). 
-2) Cash in DBS Bank Saving Account (No: 1435363): To be Equally Distributed betweem three kids (Lee Hsien Loong, Lee Hsien Yang, Lee Wei Ling). 
+2) Cash in DBS Bank Saving Account (No: 1435363): To be Equally Distributed between three kids (Lee Hsien Loong, Lee Hsien Yang, Lee Wei Ling). 
 3) All fixed deposits in DBS Bank: 2) Cash in DBS Bank Saving Account (No: 1435363): To be Equally Distributed betweem three kids (Lee Hsien Loong, Lee Hsien Yang, Lee Wei Ling).
 
-    
+
+Suggestions from Assessors
+==========================
+1) Use a mapping rather than a struct.
+2) Can consider to let user to deposit their digital currency, upon death announced, 
+to distribute to stack holder automatically.
+3) May hit the contact size limit, said 1 million will insides.
+4) To have form checking before activate the submit button.
+
