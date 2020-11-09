@@ -1,0 +1,69 @@
+Individual Project Defense
+https://us04web.zoom.us/j/72654253757?pwd=SFNUbFFDMFM1aEdsOGFLZ2V0WU9mdz09
+
+
+Smart Contract Deploy Address:
+0x473a514f40FD105D980Cbca33A7Ca3fb28992F75
+https://ropsten.etherscan.io/address/0x473a514f40FD105D980Cbca33A7Ca3fb28992F75
+
+
+Sample Will Hash:
+efa3d898d0c97c329393fbddf8f46aeca721039d90cae19f370d40a37aebc552
+fe056be56a6ec138557fec2da99055445cbf4739e9f18a4c5da24c561556a35d
+b932556ccbb12c1587437314963d03bc0f939e8c8f7b412cb79f7a464d57c961
+
+
+Architecture of project:
+========================
+Chrome with Metamask installed
+localhost:8080/blockwill        
+--> Sending will info to smart contract address 0x473a514f40FD105D980Cbca33A7Ca3fb28992F75
+    - willHash = sha256(JSON.stringify(this.form)); // to guarantee data integrity, as a searching key in storage also.
+    - contract.methods
+          .upload(
+            willHash,            
+            this.form.personaldetails.details,
+            this.form.assetallocations.allocations,
+            this.form.executor.executorIpfsImageHash
+          )
+
+--> Retriving info from deployed smart contract 
+    - contract.methods.getWill(this.form.retrieveWillHash).call({
+               from: window.web3.eth.defaultAccount}).then(async (res) => {
+               //Return format: Wills[i].personalDetail,Wills[i].assetAllocation, Wills[i].executorImageIpfsHash, Wills[i].dateAddedIntoSmartContract, 
+            
+               this.form.personaldetails.details=res[0];  
+               this.form.assetallocations.allocations=res[1]; 
+               this.form.executorImageHash=res[2];
+               this.RetrieveExecutorImage(this.form.executorImageHash);
+               );
+
+
+
+Unit testing of contract:
+https://remix.ethereum.org/#optimize=false&evmVersion=null&version=soljson-v0.4.26+commit.4563c3fc.js
+
+
+
+Area for improvements
+=====================
+1) More complete input and output for will writer.
+2) Will writing is not just technical implementation, need to have national law to support or to give standard for implementation.
+3) How to make sure the will writer is the actual will owner? (e.g. may request persistance of biometrics data, but privacy issue?)
+4) Data integrity verification at the retrieval page.
+5) Versioning of will (making sure the sender with only one most updated will)
+6) Auto execution of will, upon Death Registratation Agency announces death of will owner, will will be autoreleased to executor. 
+7) User has to install metamask extension and ipfs.
+8) Create Willcoin to tokenize this solution.
+9) Refactor of ContactABI and Contract address into a single javascript.
+
+
+
+Sample Will:
+Lee Kwan Yew (IC:  S0000003E)
+
+1) 38 Oxley Road: Let the daughter (Lee Wei Ling, IC: SxxxxxxxG) has privilege to live in it without rental. Upon selling, sellng profit to be Equally Distributed betweem three kids (Lee Hsien Loong, Lee Hsien Yang, Lee Wei Ling). 
+2) Cash in DBS Bank Saving Account (No: 1435363): To be Equally Distributed betweem three kids (Lee Hsien Loong, Lee Hsien Yang, Lee Wei Ling). 
+3) All fixed deposits in DBS Bank: 2) Cash in DBS Bank Saving Account (No: 1435363): To be Equally Distributed betweem three kids (Lee Hsien Loong, Lee Hsien Yang, Lee Wei Ling).
+
+    
