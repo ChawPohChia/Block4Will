@@ -1,5 +1,5 @@
 # Block4will
-## This is a project that intends to let will writer to persist his written will into Ethereum blockchain. And to retrive it using a will hash that guarantee data integrity of the will. Executor image is persisted to IPFS to save gas fees.
+This is a project that intends to let will writer to persist his written will into Ethereum blockchain. And to retrive it using a will hash that guarantee data integrity of the will. Executor image is persisted to IPFS to save gas fees.
 
 
 ## Project setup
