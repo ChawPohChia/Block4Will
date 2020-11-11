@@ -81,7 +81,7 @@
        let ipfs = ipfsAPI('localhost','5001',{protocol: 'http'}); 
        ipfs.cat(ipfsImageHash, (err, data) =>{
           if (err) console.log(err);       
-          document.getElementById("executorPhoto").src = data.toString();
+          document.getElementById("executorPhoto").src = data;
       });   
 
      },
